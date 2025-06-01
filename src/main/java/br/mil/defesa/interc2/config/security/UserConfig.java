@@ -1,4 +1,4 @@
-package br.mil.defesa.interc2.config;
+package br.mil.defesa.interc2.config.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
