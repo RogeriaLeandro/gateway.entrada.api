@@ -17,3 +17,24 @@ services:
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
       KAFKA_OFFSETS_TOPICS_REPLICATION_FACTOR: 1
+
+  gateway_interc2_banco:
+    image: postgres:13
+    container_name: gateway_interc2
+    environment:
+      POSTGRES_DB: entrada
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5433:5432" # Porta diferente
+    volumes:
+      - gateway_interc2_data:/var/lib/postgresql/data
+    networks:
+      - gateway_interc2_network
+
+
+networks:
+  gateway_interc2_network:
+
+volumes:
+  gateway_interc2_data:
